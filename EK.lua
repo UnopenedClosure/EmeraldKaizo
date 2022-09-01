@@ -938,7 +938,7 @@ local Game = {
 }
 
 function firstCase(str)
-return firstToUpper(string.lower(str))
+	return firstToUpper(string.lower(str))
 end
 
 function firstToUpper(str)
@@ -1469,11 +1469,11 @@ function sethp(slot, hp)
 end
 
 function getMove(curMove)
-curMove = move[curMove]
-if not curMove then
-	curMove = ""
-end
-return curMove
+	curMove = move[curMove]
+	if not curMove then
+		curMove = ""
+	end
+	return curMove
 end
 
 function slowCurve(n)
@@ -1521,8 +1521,8 @@ function expRequired(species,level)
 end
 
 function calcLevel(exp, species)
-level = 1
-while (exp>=expRequired(species,level+1)) do
+	level = 1
+	while (exp>=expRequired(species,level+1)) do
 		level=level+1
 	end
 	return level
@@ -1535,6 +1535,7 @@ function edgeparty()
 end
 
 function edge(slot)
+	--TODO add support for edging to a specified XP value from level-up
 	pcount = emu:read8(game._partyCount)
 	if(not(slot<=pcount and slot>=0)) then
 		console:log("Invalid Slot, slot out of range")
@@ -1557,29 +1558,29 @@ end
 function printBoxMon(address)
 	local mon = game:_readBoxMon(address)
 	str = ""
-		str = str .. mon.nickname .. " (" .. firstCase(game:getSpeciesName(mon.species) .. ")")
-		if (item[mon.heldItem]) then
-			str = str .. string.format(" @ %s", item[mon.heldItem])
-		end
-		str = str .. string.format("\n")
-		str = str .. "Ability: " .. string.format("%s", ability[(mon.species*2)-1+mon.altAbility]) .. string.format("\n")
-		str = str .. string.format("Level: %d\n",calcLevel(mon.experience, mon.species))
-		str = str .. string.format("%s", nature[(mon.personality % 25)+1]) .. " Nature" .. string.format("\n")
-		str = str .. string.format("IVs: %d HP / %d Atk / %d Def / %d SpA / %d SpD / %d Spe", mon.hpIV, mon.attackIV, mon.defenseIV, mon.spAttackIV, mon.spDefenseIV, mon.speedIV) .. string.format("\n")
-		if(getMove(mon.moves[1]) ~= "") then
-			str = str .. string.format("- %s\n", getMove(mon.moves[1]))
-		end
-		if(getMove(mon.moves[2]) ~= "") then
-			str = str .. string.format("- %s\n", getMove(mon.moves[2]))
-		end
-		if(getMove(mon.moves[3]) ~= "") then
-			str = str .. string.format("- %s\n", getMove(mon.moves[3]))
-		end
-		if(getMove(mon.moves[4]) ~= "") then
-			str = str .. string.format("- %s\n", getMove(mon.moves[4]))
-		end
-		str = str .. string.format("\n")
-		buffer:print(str)
+	str = str .. mon.nickname .. " (" .. firstCase(game:getSpeciesName(mon.species) .. ")")
+	if (item[mon.heldItem]) then
+		str = str .. string.format(" @ %s", item[mon.heldItem])
+	end
+	str = str .. string.format("\n")
+	str = str .. "Ability: " .. string.format("%s", ability[(mon.species*2)-1+mon.altAbility]) .. string.format("\n")
+	str = str .. string.format("Level: %d\n",calcLevel(mon.experience, mon.species))
+	str = str .. string.format("%s", nature[(mon.personality % 25)+1]) .. " Nature" .. string.format("\n")
+	str = str .. string.format("IVs: %d HP / %d Atk / %d Def / %d SpA / %d SpD / %d Spe", mon.hpIV, mon.attackIV, mon.defenseIV, mon.spAttackIV, mon.spDefenseIV, mon.speedIV) .. string.format("\n")
+	if(getMove(mon.moves[1]) ~= "") then
+		str = str .. string.format("- %s\n", getMove(mon.moves[1]))
+	end
+	if(getMove(mon.moves[2]) ~= "") then
+		str = str .. string.format("- %s\n", getMove(mon.moves[2]))
+	end
+	if(getMove(mon.moves[3]) ~= "") then
+		str = str .. string.format("- %s\n", getMove(mon.moves[3]))
+	end
+	if(getMove(mon.moves[4]) ~= "") then
+		str = str .. string.format("- %s\n", getMove(mon.moves[4]))
+	end
+	str = str .. string.format("\n")
+	buffer:print(str)
 end
 
 function exportall()

@@ -1501,13 +1501,13 @@ function erraticCurve(n)
 	return math.floor((160 - n) * n^3 / 100)
 end
 function flutuatingCurve(n)
-	if (n<=15) then
-		return math.floor(((n + 1) / 3 + 24) * n^3 / 50)
+	if (n<15) then
+	  return math.floor((math.floor((n + 1) / 3) + 24) * n^3 / 50)
 	end
 	if (n<=36) then
 		return math.floor((n + 14) * n^3 / 50)
 	end
-	return math.floor(((n / 2) + 32) * n^3 / 50)
+	return math.floor((math.floor(n / 2) + 32) * n^3 / 50)
 end
 
 function expRequired(species,level)

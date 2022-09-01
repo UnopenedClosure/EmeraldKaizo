@@ -27,15 +27,15 @@ Credit to toxic for original creation of most of the functions
 * Most commands which modify the game state in some way will require you to change to a different game screen to make the changes visible
 
 ## Available Function APIs (also available [here](https://pastebin.com/raw/e8DZRSPp)):
-* sleep(slot) - Pre sleeps chosen slot in party
-* poison(slot) - Poisons chosen slot in party
-* paralyze(slot) - Paralyzes chosen slot in party
-* burn(slot) - Burns chosen slot in party
-* freeze(slot) - Freezes chosen slot in party
-* bedtime() - Pre sleeps entire party
-* sethp(slot,HP) - sets hp of slot to specified hp
-* exportparty() - exports showdown calc verison of party to console
-* exportall() -  exports showdown calc verison of party first 5 boxes + party to console
-* edgeparty() - edges entire party
-* edge(slot) - edges slot
-* setrain(route, status) - sets rain on/off on route 119 or 123
+* `sleep(slot)` - Pre-sleeps chosen slot in party
+* `poison(slot)` - Poisons chosen slot in party
+* `paralyze(slot)` - Paralyzes chosen slot in party
+* `burn(slot)` - Burns chosen slot in party
+* `freeze(slot)` - Freezes chosen slot in party
+* `bedtime()` - Pre-sleeps entire party
+* `sethp(slot,HP)` - sets hp of slot to specified hp
+* `exportparty()` - exports showdown calc verison of party to console
+* `exportall()` -  exports showdown calc verison of party first 5 boxes + party to console
+* `edgeparty()` - edges entire party
+* `edge(slot)` - edges slot
+* `setrain(route, status)` - sets rain on/off on route 119 or 123

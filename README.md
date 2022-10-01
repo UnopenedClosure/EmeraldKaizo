@@ -2,7 +2,7 @@
 Lua script containing a set of convenience commands tailored to hardcore Nuzlockers of Pokemon Emerald Kaizo 
 
 ## Credit
-Credit to toxic for original creation of most of the functions
+Credit to toxicenduser for original creation of most of the functions
 
 ## Supported Functions:
 * pre-status

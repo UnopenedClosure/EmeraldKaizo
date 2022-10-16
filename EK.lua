@@ -1,3 +1,5 @@
+require "math"
+
 nature = {"Hardy","Lonely","Brave","Adamant","Naughty",
 			"Bold","Docile","Relaxed","Impish","Lax",
 			"Timid","Hasty","Serious","Jolly","Naive",
@@ -131,360 +133,361 @@ item = {'Master Ball',
 ' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',}
 
 move = {
-'Pound',
-'Karate Chop',
-'Double Slap',
-'Weather Ball',
-'Mega Punch',
-'Pay Day',
-'Fire Punch',
-'Ice Punch',
-'Thunder Punch',
-'Scratch',
-'Weather Ball',
-'Guillotine',
-'Razor Wind',
-'Swords Dance',
-'Cut',
-'Gust',
-'Wing Attack',
-'Whirlwind',
-'Fly',
-'Bind',
-'Slam',
-'Vine Whip',
-'Stomp',
-'Double Kick',
-'Mega Kick',
-'Jump Kick',
-'Rolling Kick',
-'Sand Attack',
-'Headbutt',
-'Horn Attack',
-'Fury Attack',
-'Drill Run',
-'Tackle',
-'Body Slam',
-'Wrap',
-'Take Down',
-'Thrash',
-'Double-Edge',
-'Tail Whip',
-'Poison Sting',
-'Twineedle',
-'Pin Missile',
-'Leer',
-'Bite',
-'Growl',
-'Roar',
-'Sing',
-'Supersonic',
-'Sonicboom',
-'Disable',
-'Acid',
-'Ember',
-'Flamethrower',
-'Mist',
-'Water Gun',
-'Hydro Pump',
-'Surf',
-'Ice Beam',
-'Blizzard',
-'Psybeam',
-'Bubble Beam',
-'Aurora Beam',
-'Hyper Beam',
-'Peck',
-'Drill Peck',
-'Hidden Power',
-'Low Kick',
-'Counter',
-'Seismic Toss',
-'Strength',
-'Absorb',
-'Mega Drain',
-'Leech Seed',
-'Growth',
-'Razor Leaf',
-'Solar Beam',
-'Poison Powder',
-'Stun Spore',
-'Sleep Powder',
-'Petal Dance',
-'String Shot',
-'Dragon Rage',
-'Fire Spin',
-'Thunder Shock',
-'Thunderbolt',
-'Thunder Wave',
-'Thunder',
-'Rock Throw',
-'Earthquake',
-'Earth Power',
-'Dig',
-'Toxic',
-'Confusion',
-'Psychic',
-'Hypnosis',
-'Meditate',
-'Agility',
-'Quick Attack',
-'Rage',
-'Teleport',
-'Night Shade',
-'Mimic',
-'Screech',
-'Double Team',
-'Recover',
-'Harden',
-'Minimize',
-'Smokescreen',
-'Confuse Ray',
-'Withdraw',
-'Defense Curl',
-'Barrier',
-'Light Screen',
-'Haze',
-'Reflect',
-'Focus Energy',
-'Bide',
-'Metronome',
-'Mirror Move',
-'Self-Destruct',
-'Egg Bomb',
-'Lick',
-'Smog',
-'Sludge Bomb',
-'Bone Club',
-'Fire Blast',
-'Waterfall',
-'Clamp',
-'Swift',
-'Head Smash',
-'Hidden Power',
-'Hidden Power',
-'Amnesia',
-'Kinesis',
-'Soft-Boiled',
-'Hi Jump Kick',
-'Glare',
-'Dream Eater',
-'Hidden Power',
-'Hidden Power',
-'Leech Life',
-'Lovely Kiss',
-'Sky Attack',
-'Transform',
-'Bubble',
-'Dizzy Punch',
-'Spore',
-'Flash',
-'Psywave',
-'Hidden Power',
-'Acid Armor',
-'Crabhammer',
-'Explosion',
-'Fury Swipes',
-'Bonemerang',
-'Rest',
-'Rock Slide',
-'Hyper Fang',
-'Hidden Power',
-'Conversion',
-'Tri Attack',
-'Super Fang',
-'Slash',
-'Substitute',
-'Struggle',
-'Sketch',
-'Hidden Power',
-'Thief',
-'Spider Web',
-'Mind Reader',
-'Nightmare',
-'Flame Wheel',
-'Snore',
-'Curse',
-'Flail',
-'Conversion 2',
-'Aeroblast',
-'Hidden Power',
-'Reversal',
-'Spite',
-'Powder Snow',
-'Protect',
-'Mach Punch',
-'Scary Face',
-'Faint Attack',
-'Sweet Kiss',
-'Belly Drum',
-'Gunk Shot',
-'Mud-Slap',
-'Octazooka',
-'Spikes',
-'Zap Cannon',
-'Foresight',
-'Destiny Bond',
-'Perish Song',
-'Icy Wind',
-'Detect',
-'Bone Rush',
-'Lock-On',
-'Hidden Power',
-'Sandstorm',
-'Giga Drain',
-'Endure',
-'Charm',
-'Rollout',
-'False Swipe',
-'Swagger',
-'Milk Drink',
-'Wild Charge',
-'X-scissors',
-'Steel Wing',
-'Mean Look',
-'Attract',
-'Sleep Talk',
-'Heal Bell',
-'Return',
-'Present',
-'Frustration',
-'Safeguard',
-'Pain Split',
-'Sacred Fire',
-'Magnitude',
-'Dynamic Punch',
-'Megahorn',
-'Dragon Breath',
-'Baton Pass',
-'Encore',
-'Pursuit',
-'Rapid Spin',
-'Sweet Scent',
-'Iron Tail',
-'Metal Claw',
-'Vital Throw',
-'Morning Sun',
-'Synthesis',
-'Moonlight',
-'Hidden Power',
-'Cross Chop',
-'Twister',
-'Rain Dance',
-'Sunny Day',
-'Crunch',
-'Mirror Coat',
-'Psych Up',
-'Extreme Speed',
-'Ancientpower',
-'Shadow Ball',
-'Hidden Power',
-'Rock Smash',
-'Whirlpool',
-'Beat Up',
-'Fake Out',
-'Uproar',
-'Stockpile',
-'Spit Up',
-'Swallow',
-'Heat Wave',
-'Hail',
-'Torment',
-'Flatter',
-'Will-O-Wisp',
-'Memento',
-'Facade',
-'Focus Punch',
-'Smelling Salts',
-'Follow Me',
-'Nature Power',
-'Charge',
-'Taunt',
-'Helping Hand',
-'Hidden Power',
-'Role Play',
-'Wish',
-'Assist',
-'Ingrain',
-'Superpower',
-'Magic Coat',
-'Recycle',
-'Revenge',
-'Brick Break',
-'Yawn',
-'Knock Off',
-'Endeavor',
-'Draco Meteor',
-'Skill Swap',
-'Imprison',
-'Refresh',
-'Grudge',
-'Snatch',
-'Secret Power',
-'Dive',
-'Force Palm',
-'Camouflage',
-'Tail Glow',
-'Luster Purge',
-'Mist Ball',
-'Feather Dance',
-'Teeter Dance',
-'Blaze Kick',
-'Mud Sport',
-'Ice Ball',
-'Needle Arm',
-'Slack Off',
-'Hyper Voice',
-'Poison Fang',
-'Crush Claw',
-'Blast Burn',
-'Hydro Cannon',
-'Meteor Mash',
-'Shadow Sneak',
-'Weather Ball',
-'Aromatherapy',
-'Fake Tears',
-'Air Slash',
-'Overheat',
-'Odor Sleuth',
-'Rock Tomb',
-'Silver Wind',
-'Flash Cannon',
-'Grass Whistle',
-'Tickle',
-'Cosmic Power',
-'Water Spout',
-'Signal Beam',
-'Shadow Punch',
-'Extrasensory',
-'Sky Uppercut',
-'Sand Tomb',
-'Sheer Cold',
-'Muddy Water',
-'Bullet Seed',
-'Aerial Ace',
-'Ice Shard',
-'Iron Defense',
-'Block',
-'Howl',
-'Dragon Claw',
-'Frenzy Plant',
-'Bulk Up',
-'Bounce',
-'Mud Shot',
-'Poison Tail',
-'Hidden Power',
-'Volt Tackle',
-'Magical Leaf',
-'Water Sport',
-'Calm Mind',
-'Leaf Blade',
-'Dragon Dance',
-'Rock Blast',
-'Shock Wave',
-'Water Pulse',
-'Doom Desire',
-'Psycho Boost'
+[000] = { name = '', maxPP = 99 },
+[001] = { name = 'Pound', maxPP = 35 },
+[002] = { name = 'Karate Chop', maxPP = 25 },
+[003] = { name = 'Double Slap', maxPP = 10 },
+[004] = { name = 'Weather Ball', maxPP = 15 },
+[005] = { name = 'Mega Punch', maxPP = 20 },
+[006] = { name = 'Pay Day', maxPP = 20 },
+[007] = { name = 'Fire Punch', maxPP = 15 },
+[008] = { name = 'Ice Punch', maxPP = 15 },
+[009] = { name = 'Thunder Punch', maxPP = 15 },
+[010] = { name = 'Scratch', maxPP = 35 },
+[011] = { name = 'Weather Ball', maxPP = 15 },
+[012] = { name = 'Guillotine', maxPP = 5 },
+[013] = { name = 'Razor Wind', maxPP = 10 },
+[014] = { name = 'Swords Dance', maxPP = 5 },
+[015] = { name = 'Cut', maxPP = 30 },
+[016] = { name = 'Gust', maxPP = 35 },
+[017] = { name = 'Wing Attack', maxPP = 35 },
+[018] = { name = 'Whirlwind', maxPP = 5 },
+[019] = { name = 'Fly', maxPP = 15 },
+[020] = { name = 'Bind', maxPP = 20 },
+[021] = { name = 'Slam', maxPP = 20 },
+[022] = { name = 'Vine Whip', maxPP = 10 },
+[023] = { name = 'Stomp', maxPP = 20 },
+[024] = { name = 'Double Kick', maxPP = 30 },
+[025] = { name = 'Mega Kick', maxPP = 5 },
+[026] = { name = 'Jump Kick', maxPP = 25 },
+[027] = { name = 'Rolling Kick', maxPP = 24 },
+[028] = { name = 'Sand Attack', maxPP = 5 },
+[029] = { name = 'Headbutt', maxPP = 15 },
+[030] = { name = 'Horn Attack', maxPP = 25 },
+[031] = { name = 'Fury Attack', maxPP = 20 },
+[032] = { name = 'Drill Run', maxPP = 16 },
+[033] = { name = 'Tackle', maxPP = 35 },
+[034] = { name = 'Body Slam', maxPP = 24 },
+[035] = { name = 'Wrap', maxPP = 20 },
+[036] = { name = 'Take Down', maxPP = 20 },
+[037] = { name = 'Thrash', maxPP = 20 },
+[038] = { name = 'Double-Edge', maxPP = 24 },
+[039] = { name = 'Tail Whip', maxPP = 1 },
+[040] = { name = 'Poison Sting', maxPP = 35 },
+[041] = { name = 'Twineedle', maxPP = 20 },
+[042] = { name = 'Pin Missile', maxPP = 20 },
+[043] = { name = 'Leer', maxPP = 1 },
+[044] = { name = 'Bite', maxPP = 25 },
+[045] = { name = 'Growl', maxPP = 1 },
+[046] = { name = 'Roar', maxPP = 5 },
+[047] = { name = 'Sing', maxPP = 32 },
+[048] = { name = 'Supersonic', maxPP = 20 },
+[049] = { name = 'Sonicboom', maxPP = 20 },
+[050] = { name = 'Disable', maxPP = 20 },
+[051] = { name = 'Acid', maxPP = 30 },
+[052] = { name = 'Ember', maxPP = 25 },
+[053] = { name = 'Flamethrower', maxPP = 24 },
+[054] = { name = 'Mist', maxPP = 3 },
+[055] = { name = 'Water Gun', maxPP = 25 },
+[056] = { name = 'Hydro Pump', maxPP = 8 },
+[057] = { name = 'Surf', maxPP = 24 },
+[058] = { name = 'Ice Beam', maxPP = 16 },
+[059] = { name = 'Blizzard', maxPP = 8 },
+[060] = { name = 'Psybeam', maxPP = 20 },
+[061] = { name = 'Bubble Beam', maxPP = 20 },
+[062] = { name = 'Aurora Beam', maxPP = 20 },
+[063] = { name = 'Hyper Beam', maxPP = 8 },
+[064] = { name = 'Peck', maxPP = 35 },
+[065] = { name = 'Drill Peck', maxPP = 20 },
+[066] = { name = 'Hidden Power', maxPP = 24 },
+[067] = { name = 'Low Kick', maxPP = 20 },
+[068] = { name = 'Counter', maxPP = 32 },
+[069] = { name = 'Seismic Toss', maxPP = 20 },
+[070] = { name = 'Strength', maxPP = 15 },
+[071] = { name = 'Absorb', maxPP = 20 },
+[072] = { name = 'Mega Drain', maxPP = 10 },
+[073] = { name = 'Leech Seed', maxPP = 16 },
+[074] = { name = 'Growth', maxPP = 5 },
+[075] = { name = 'Razor Leaf', maxPP = 25 },
+[076] = { name = 'Solar Beam', maxPP = 16 },
+[077] = { name = 'Poison Powder', maxPP = 35 },
+[078] = { name = 'Stun Spore', maxPP = 30 },
+[079] = { name = 'Sleep Powder', maxPP = 24 },
+[080] = { name = 'Petal Dance', maxPP = 16 },
+[081] = { name = 'String Shot', maxPP = 5 },
+[082] = { name = 'Dragon Rage', maxPP = 10 },
+[083] = { name = 'Fire Spin', maxPP = 24 },
+[084] = { name = 'Thunder Shock', maxPP = 30 },
+[085] = { name = 'Thunderbolt', maxPP = 24 },
+[086] = { name = 'Thunder Wave', maxPP = 16 },
+[087] = { name = 'Thunder', maxPP = 16 },
+[088] = { name = 'Rock Throw', maxPP = 15 },
+[089] = { name = 'Earthquake', maxPP = 16 },
+[090] = { name = 'Earth Power', maxPP = 16 },
+[091] = { name = 'Dig', maxPP = 10 },
+[092] = { name = 'Toxic', maxPP = 16 },
+[093] = { name = 'Confusion', maxPP = 25 },
+[094] = { name = 'Psychic', maxPP = 16 },
+[095] = { name = 'Hypnosis', maxPP = 24 },
+[096] = { name = 'Meditate', maxPP = 5 },
+[097] = { name = 'Agility', maxPP = 3 },
+[098] = { name = 'Quick Attack', maxPP = 30 },
+[099] = { name = 'Rage', maxPP = 20 },
+[100] = { name = 'Teleport', maxPP = 20 },
+[101] = { name = 'Night Shade', maxPP = 15 },
+[102] = { name = 'Mimic', maxPP = 10 },
+[103] = { name = 'Screech', maxPP = 3 },
+[104] = { name = 'Double Team', maxPP = 6 },
+[105] = { name = 'Recover', maxPP = 10 },
+[106] = { name = 'Harden', maxPP = 5 },
+[107] = { name = 'Minimize', maxPP = 6 },
+[108] = { name = 'Smokescreen', maxPP = 5 },
+[109] = { name = 'Confuse Ray', maxPP = 10 },
+[110] = { name = 'Withdraw', maxPP = 1 },
+[111] = { name = 'Defense Curl', maxPP = 1 },
+[112] = { name = 'Barrier', maxPP = 3 },
+[113] = { name = 'Light Screen', maxPP = 3 },
+[114] = { name = 'Haze', maxPP = 5 },
+[115] = { name = 'Reflect', maxPP = 3 },
+[116] = { name = 'Focus Energy', maxPP = 1 },
+[117] = { name = 'Bide', maxPP = 10 },
+[118] = { name = 'Metronome', maxPP = 35 },
+[119] = { name = 'Mirror Move', maxPP = 20 },
+[120] = { name = 'Self-Destruct', maxPP = 1 },
+[121] = { name = 'Egg Bomb', maxPP = 10 },
+[122] = { name = 'Lick', maxPP = 30 },
+[123] = { name = 'Smog', maxPP = 20 },
+[124] = { name = 'Sludge Bomb', maxPP = 16 },
+[125] = { name = 'Bone Club', maxPP = 20 },
+[126] = { name = 'Fire Blast', maxPP = 8 },
+[127] = { name = 'Waterfall', maxPP = 15 },
+[128] = { name = 'Clamp', maxPP = 16 },
+[129] = { name = 'Swift', maxPP = 20 },
+[130] = { name = 'Head Smash', maxPP = 8 },
+[131] = { name = 'Hidden Power', maxPP = 24 },
+[132] = { name = 'Hidden Power', maxPP = 24 },
+[133] = { name = 'Amnesia', maxPP = 3 },
+[134] = { name = 'Kinesis', maxPP = 6 },
+[135] = { name = 'Soft-Boiled', maxPP = 16 },
+[136] = { name = 'Hi Jump Kick', maxPP = 20 },
+[137] = { name = 'Glare', maxPP = 30 },
+[138] = { name = 'Dream Eater', maxPP = 15 },
+[139] = { name = 'Hidden Power', maxPP = 24 },
+[140] = { name = 'Hidden Power', maxPP = 24 },
+[141] = { name = 'Leech Life', maxPP = 24 },
+[142] = { name = 'Lovely Kiss', maxPP = 16 },
+[143] = { name = 'Sky Attack', maxPP = 16 },
+[144] = { name = 'Transform', maxPP = 32 },
+[145] = { name = 'Bubble', maxPP = 30 },
+[146] = { name = 'Dizzy Punch', maxPP = 10 },
+[147] = { name = 'Spore', maxPP = 15 },
+[148] = { name = 'Flash', maxPP = 5 },
+[149] = { name = 'Psywave', maxPP = 24 },
+[150] = { name = 'Hidden Power', maxPP = 24 },
+[151] = { name = 'Acid Armor', maxPP = 3 },
+[152] = { name = 'Crabhammer', maxPP = 16 },
+[153] = { name = 'Explosion', maxPP = 1 },
+[154] = { name = 'Fury Swipes', maxPP = 15 },
+[155] = { name = 'Bonemerang', maxPP = 16 },
+[156] = { name = 'Rest', maxPP = 10 },
+[157] = { name = 'Rock Slide', maxPP = 16 },
+[158] = { name = 'Hyper Fang', maxPP = 24 },
+[159] = { name = 'Hidden Power', maxPP = 24 },
+[160] = { name = 'Conversion', maxPP = 30 },
+[161] = { name = 'Tri Attack', maxPP = 16 },
+[162] = { name = 'Super Fang', maxPP = 16 },
+[163] = { name = 'Slash', maxPP = 20 },
+[164] = { name = 'Substitute', maxPP = 10 },
+[165] = { name = 'Struggle', maxPP = 1 },
+[166] = { name = 'Sketch', maxPP = 1 },
+[167] = { name = 'Hidden Power', maxPP = 24 },
+[168] = { name = 'Thief', maxPP = 10 },
+[169] = { name = 'Spider Web', maxPP = 10 },
+[170] = { name = 'Mind Reader', maxPP = 5 },
+[171] = { name = 'Nightmare', maxPP = 15 },
+[172] = { name = 'Flame Wheel', maxPP = 25 },
+[173] = { name = 'Snore', maxPP = 30 },
+[174] = { name = 'Curse', maxPP = 6 },
+[175] = { name = 'Flail', maxPP = 5 },
+[176] = { name = 'Conversion 2', maxPP = 30 },
+[177] = { name = 'Aeroblast', maxPP = 10 },
+[178] = { name = 'Hidden Power', maxPP = 24 },
+[179] = { name = 'Reversal', maxPP = 5 },
+[180] = { name = 'Spite', maxPP = 16 },
+[181] = { name = 'Powder Snow', maxPP = 25 },
+[182] = { name = 'Protect', maxPP = 10 },
+[183] = { name = 'Mach Punch', maxPP = 30 },
+[184] = { name = 'Scary Face', maxPP = 3 },
+[185] = { name = 'Faint Attack', maxPP = 20 },
+[186] = { name = 'Sweet Kiss', maxPP = 10 },
+[187] = { name = 'Belly Drum', maxPP = 3 },
+[188] = { name = 'Gunk Shot', maxPP = 8 },
+[189] = { name = 'Mud-Slap', maxPP = 10 },
+[190] = { name = 'Octazooka', maxPP = 16 },
+[191] = { name = 'Spikes', maxPP = 3 },
+[192] = { name = 'Zap Cannon', maxPP = 5 },
+[193] = { name = 'Foresight', maxPP = 5 },
+[194] = { name = 'Destiny Bond', maxPP = 5 },
+[195] = { name = 'Perish Song', maxPP = 5 },
+[196] = { name = 'Icy Wind', maxPP = 24 },
+[197] = { name = 'Detect', maxPP = 5 },
+[198] = { name = 'Bone Rush', maxPP = 24 },
+[199] = { name = 'Lock-On', maxPP = 5 },
+[200] = { name = 'Hidden Power', maxPP = 24 },
+[201] = { name = 'Sandstorm', maxPP = 1 },
+[202] = { name = 'Giga Drain', maxPP = 16 },
+[203] = { name = 'Endure', maxPP = 5 },
+[204] = { name = 'Charm', maxPP = 5 },
+[205] = { name = 'Rollout', maxPP = 20 },
+[206] = { name = 'False Swipe', maxPP = 40 },
+[207] = { name = 'Swagger', maxPP = 15 },
+[208] = { name = 'Milk Drink', maxPP = 10 },
+[209] = { name = 'Wild Charge', maxPP = 24 },
+[210] = { name = 'X-scissors', maxPP = 20 },
+[211] = { name = 'Steel Wing', maxPP = 25 },
+[212] = { name = 'Mean Look', maxPP = 5 },
+[213] = { name = 'Attract', maxPP = 15 },
+[214] = { name = 'Sleep Talk', maxPP = 16 },
+[215] = { name = 'Heal Bell', maxPP = 2 },
+[216] = { name = 'Return', maxPP = 32 },
+[217] = { name = 'Present', maxPP = 15 },
+[218] = { name = 'Frustration', maxPP = 32 },
+[219] = { name = 'Safeguard', maxPP = 3 },
+[220] = { name = 'Pain Split', maxPP = 10 },
+[221] = { name = 'Sacred Fire', maxPP = 10 },
+[222] = { name = 'Magnitude', maxPP = 30 },
+[223] = { name = 'Dynamic Punch', maxPP = 5 },
+[224] = { name = 'Megahorn', maxPP = 16 },
+[225] = { name = 'Dragon Breath', maxPP = 20 },
+[226] = { name = 'Baton Pass', maxPP = 40 },
+[227] = { name = 'Encore', maxPP = 5 },
+[228] = { name = 'Pursuit', maxPP = 20 },
+[229] = { name = 'Rapid Spin', maxPP = 1 },
+[230] = { name = 'Sweet Scent', maxPP = 5 },
+[231] = { name = 'Iron Tail', maxPP = 24 },
+[232] = { name = 'Metal Claw', maxPP = 35 },
+[233] = { name = 'Vital Throw', maxPP = 10 },
+[234] = { name = 'Morning Sun', maxPP = 10 },
+[235] = { name = 'Synthesis', maxPP = 10 },
+[236] = { name = 'Moonlight', maxPP = 10 },
+[237] = { name = 'Hidden Power', maxPP = 15 },
+[238] = { name = 'Cross Chop', maxPP = 8 },
+[239] = { name = 'Twister', maxPP = 20 },
+[240] = { name = 'Rain Dance', maxPP = 1 },
+[241] = { name = 'Sunny Day', maxPP = 1 },
+[242] = { name = 'Crunch', maxPP = 24 },
+[243] = { name = 'Mirror Coat', maxPP = 32 },
+[244] = { name = 'Psych Up', maxPP = 10 },
+[245] = { name = 'Extreme Speed', maxPP = 8 },
+[246] = { name = 'Ancientpower', maxPP = 8 },
+[247] = { name = 'Shadow Ball', maxPP = 24 },
+[248] = { name = 'Hidden Power', maxPP = 24 },
+[249] = { name = 'Rock Smash', maxPP = 24 },
+[250] = { name = 'Whirlpool', maxPP = 24 },
+[251] = { name = 'Beat Up', maxPP = 10 },
+[252] = { name = 'Fake Out', maxPP = 5 },
+[253] = { name = 'Uproar', maxPP = 10 },
+[254] = { name = 'Stockpile', maxPP = 16 },
+[255] = { name = 'Spit Up', maxPP = 16 },
+[256] = { name = 'Swallow', maxPP = 10 },
+[257] = { name = 'Heat Wave', maxPP = 16 },
+[258] = { name = 'Hail', maxPP = 1 },
+[259] = { name = 'Torment', maxPP = 5 },
+[260] = { name = 'Flatter', maxPP = 24 },
+[261] = { name = 'Will-O-Wisp', maxPP = 15 },
+[262] = { name = 'Memento', maxPP = 1 },
+[263] = { name = 'Facade', maxPP = 32 },
+[264] = { name = 'Focus Punch', maxPP = 20 },
+[265] = { name = 'Smelling Salts', maxPP = 10 },
+[266] = { name = 'Follow Me', maxPP = 20 },
+[267] = { name = 'Nature Power', maxPP = 20 },
+[268] = { name = 'Charge', maxPP = 20 },
+[269] = { name = 'Taunt', maxPP = 3 },
+[270] = { name = 'Helping Hand', maxPP = 20 },
+[271] = { name = 'Hidden Power', maxPP = 24 },
+[272] = { name = 'Role Play', maxPP = 10 },
+[273] = { name = 'Wish', maxPP = 2 },
+[274] = { name = 'Assist', maxPP = 32 },
+[275] = { name = 'Ingrain', maxPP = 1 },
+[276] = { name = 'Superpower', maxPP = 8 },
+[277] = { name = 'Magic Coat', maxPP = 15 },
+[278] = { name = 'Recycle', maxPP = 16 },
+[279] = { name = 'Revenge', maxPP = 10 },
+[280] = { name = 'Brick Break', maxPP = 15 },
+[281] = { name = 'Yawn', maxPP = 10 },
+[282] = { name = 'Knock Off', maxPP = 5 },
+[283] = { name = 'Endeavor', maxPP = 5 },
+[284] = { name = 'Draco Meteor', maxPP = 8 },
+[285] = { name = 'Skill Swap', maxPP = 10 },
+[286] = { name = 'Imprison', maxPP = 10 },
+[287] = { name = 'Refresh', maxPP = 5 },
+[288] = { name = 'Grudge', maxPP = 5 },
+[289] = { name = 'Snatch', maxPP = 3 },
+[290] = { name = 'Secret Power', maxPP = 20 },
+[291] = { name = 'Dive', maxPP = 10 },
+[292] = { name = 'Force Palm', maxPP = 16 },
+[293] = { name = 'Camouflage', maxPP = 20 },
+[294] = { name = 'Tail Glow', maxPP = 3 },
+[295] = { name = 'Luster Purge', maxPP = 10 },
+[296] = { name = 'Mist Ball', maxPP = 10 },
+[297] = { name = 'Feather Dance', maxPP = 5 },
+[298] = { name = 'Teeter Dance', maxPP = 32 },
+[299] = { name = 'Blaze Kick', maxPP = 16 },
+[300] = { name = 'Mud Sport', maxPP = 15 },
+[301] = { name = 'Ice Ball', maxPP = 20 },
+[302] = { name = 'Needle Arm', maxPP = 24 },
+[303] = { name = 'Slack Off', maxPP = 10 },
+[304] = { name = 'Hyper Voice', maxPP = 16 },
+[305] = { name = 'Poison Fang', maxPP = 24 },
+[306] = { name = 'Crush Claw', maxPP = 16 },
+[307] = { name = 'Blast Burn', maxPP = 8 },
+[308] = { name = 'Hydro Cannon', maxPP = 8 },
+[309] = { name = 'Meteor Mash', maxPP = 16 },
+[310] = { name = 'Shadow Sneak', maxPP = 24 },
+[311] = { name = 'Weather Ball', maxPP = 16 },
+[312] = { name = 'Aromatherapy', maxPP = 2 },
+[313] = { name = 'Fake Tears', maxPP = 3 },
+[314] = { name = 'Air Slash', maxPP = 25 },
+[315] = { name = 'Overheat', maxPP = 16 },
+[316] = { name = 'Odor Sleuth', maxPP = 3 },
+[317] = { name = 'Rock Tomb', maxPP = 16 },
+[318] = { name = 'Silver Wind', maxPP = 5 },
+[319] = { name = 'Flash Cannon', maxPP = 16 },
+[320] = { name = 'Grass Whistle', maxPP = 24 },
+[321] = { name = 'Tickle', maxPP = 6 },
+[322] = { name = 'Cosmic Power', maxPP = 6 },
+[323] = { name = 'Water Spout', maxPP = 8 },
+[324] = { name = 'Signal Beam', maxPP = 24 },
+[325] = { name = 'Shadow Punch', maxPP = 20 },
+[326] = { name = 'Extrasensory', maxPP = 30 },
+[327] = { name = 'Sky Uppercut', maxPP = 24 },
+[328] = { name = 'Sand Tomb', maxPP = 24 },
+[329] = { name = 'Sheer Cold', maxPP = 8 },
+[330] = { name = 'Muddy Water', maxPP = 10 },
+[331] = { name = 'Bullet Seed', maxPP = 30 },
+[332] = { name = 'Aerial Ace', maxPP = 32 },
+[333] = { name = 'Ice Shard', maxPP = 30 },
+[334] = { name = 'Iron Defense', maxPP = 3 },
+[335] = { name = 'Block', maxPP = 5 },
+[336] = { name = 'Howl', maxPP = 5 },
+[337] = { name = 'Dragon Claw', maxPP = 24 },
+[338] = { name = 'Frenzy Plant', maxPP = 8 },
+[339] = { name = 'Bulk Up', maxPP = 3 },
+[340] = { name = 'Bounce', maxPP = 5 },
+[341] = { name = 'Mud Shot', maxPP = 24 },
+[342] = { name = 'Poison Tail', maxPP = 16 },
+[343] = { name = 'Hidden Power', maxPP = 24 },
+[344] = { name = 'Volt Tackle', maxPP = 24 },
+[345] = { name = 'Magical Leaf', maxPP = 20 },
+[346] = { name = 'Water Sport', maxPP = 15 },
+[347] = { name = 'Calm Mind', maxPP = 3 },
+[348] = { name = 'Leaf Blade', maxPP = 24 },
+[349] = { name = 'Dragon Dance', maxPP = 3 },
+[350] = { name = 'Rock Blast', maxPP = 10 },
+[351] = { name = 'Shock Wave', maxPP = 20 },
+[352] = { name = 'Water Pulse', maxPP = 20 },
+[353] = { name = 'Doom Desire', maxPP = 5 },
+[354] = { name = 'Psycho Boost', maxPP = 8 }
 } 
 
 ability = {'Overgrow','Overgrow',
@@ -1469,11 +1472,7 @@ function sethp(slot, hp)
 end
 
 function getMove(curMove)
-	curMove = move[curMove]
-	if not curMove then
-		curMove = ""
-	end
-	return curMove
+	return move[curMove]["name"]
 end
 
 function slowCurve(n)
@@ -1535,7 +1534,6 @@ function edgeparty()
 end
 
 function edge(slot)
-	--TODO add support for edging to a specified XP value from level-up
 	pcount = emu:read8(game._partyCount)
 	if(not(slot<=pcount and slot>=0)) then
 		console:log("Invalid Slot, slot out of range")
@@ -1555,8 +1553,7 @@ function edge(slot)
 	end
 end
 
-function printBoxMon(address)
-	local mon = game:_readBoxMon(address)
+function printMon(mon)
 	str = ""
 	str = str .. mon.nickname .. " (" .. firstCase(game:getSpeciesName(mon.species) .. ")")
 	if (item[mon.heldItem]) then
@@ -1567,17 +1564,11 @@ function printBoxMon(address)
 	str = str .. string.format("Level: %d\n",calcLevel(mon.experience, mon.species))
 	str = str .. string.format("%s", nature[(mon.personality % 25)+1]) .. " Nature" .. string.format("\n")
 	str = str .. string.format("IVs: %d HP / %d Atk / %d Def / %d SpA / %d SpD / %d Spe", mon.hpIV, mon.attackIV, mon.defenseIV, mon.spAttackIV, mon.spDefenseIV, mon.speedIV) .. string.format("\n")
-	if(getMove(mon.moves[1]) ~= "") then
-		str = str .. string.format("- %s\n", getMove(mon.moves[1]))
-	end
-	if(getMove(mon.moves[2]) ~= "") then
-		str = str .. string.format("- %s\n", getMove(mon.moves[2]))
-	end
-	if(getMove(mon.moves[3]) ~= "") then
-		str = str .. string.format("- %s\n", getMove(mon.moves[3]))
-	end
-	if(getMove(mon.moves[4]) ~= "") then
-		str = str .. string.format("- %s\n", getMove(mon.moves[4]))
+	for i=1,4 do
+		local mv = getMove(mon.moves[i])
+		if(mv ~= "") then
+			str = str .. string.format("- %s\n", mv)
+		end
 	end
 	str = str .. string.format("\n")
 	buffer:print(str)
@@ -1589,7 +1580,7 @@ function exportall()
 	exportparty()
 	while i<120 do
 		if (emu:read32(address) ~=0) then 
-			printBoxMon(address)
+			printMon(game:_readBoxMon(address))
 		end
 		i = i+1
 		address = address + 80
@@ -1599,30 +1590,7 @@ end
 function exportparty()
 	buffer:clear()
     for _, mon in ipairs(game:getParty()) do
-		str = ""
-		str = str .. mon.nickname .. " (" .. firstCase(game:getSpeciesName(mon.species) .. ")")
-		if (item[mon.heldItem]) then
-			str = str .. string.format(" @ %s", item[mon.heldItem])
-		end
-		str = str .. string.format("\n")
-		str = str .. "Ability: " .. string.format("%s", ability[(mon.species*2)-1+mon.altAbility]) .. string.format("\n")
-		str = str .. string.format("Level: %d\n",mon.level)
-		str = str .. string.format("%s", nature[(mon.personality % 25)+1]) .. " Nature" .. string.format("\n")
-		str = str .. string.format("IVs: %d HP / %d Atk / %d Def / %d SpA / %d SpD / %d Spe", mon.hpIV, mon.attackIV, mon.defenseIV, mon.spAttackIV, mon.spDefenseIV, mon.speedIV) .. string.format("\n")
-		if(getMove(mon.moves[1]) ~= "") then
-			str = str .. string.format("- %s\n", getMove(mon.moves[1]))
-		end
-		if(getMove(mon.moves[2]) ~= "") then
-			str = str .. string.format("- %s\n", getMove(mon.moves[2]))
-		end
-		if(getMove(mon.moves[3]) ~= "") then
-			str = str .. string.format("- %s\n", getMove(mon.moves[3]))
-		end
-		if(getMove(mon.moves[4]) ~= "") then
-			str = str .. string.format("- %s\n", getMove(mon.moves[4]))
-		end
-		str = str .. string.format("\n")
-		buffer:print(str)
+		printMon(mon)
 	end
 end
 
@@ -1642,9 +1610,71 @@ function setrain(route, status)
 	end
 end
 
+function getbits(a, b, d)
+	return (a >> b) % (1 << d)
+end
+
+function heal(slot)
+	if (slot>game._partyCount or slot<1) then
+		console:log("Invalid Slot, slot out of range")
+	else
+		local start = 0x20244ec  + 100 * (slot - 1)
+		local mon = game:_readPartyMon(start)
+		sethp(slot, mon.maxHP)
+		statusSlot(slot, 0)
+		
+		local magicword = BitXOR(mon.personality, mon.otId)
+		local aux = mon.personality % 24
+		local attackoffset = substructSelector[aux][2] * 12
+		local checksum = mon.checksum
+		local attack3 = BitXOR(emu:read32(start+32+attackoffset+8), magicword)
+		local temp = 0
+		for i=3,0,-1 do
+			temp = temp << 8
+			local attackVal = BitXOR(emu:read32(start+32+attackoffset + 4*(math.floor(i/2))), magicword)
+			local mv = (attackVal >> (16*(i%2))) % (1 << 16)
+			if mv ~= 0 then
+				local newPP = move[mv]["maxPP"]
+				temp = temp + newPP
+				local oldPP = getbits(attack3, 8 * i, 8)
+				checksum = checksum + ((newPP - oldPP) * (1 + (0xFF * (i % 2))))
+			end
+		end
+		emu:write32(start+32+attackoffset+8, BitXOR(temp, magicword))
+		emu:write16(start+28, checksum)
+	end
+end
+
+function nursejoy()
+	for i=emu:read8(game._partyCount),1,-1 do
+		heal(i)
+	end
+end
+
+function help()
+	buffer:clear()
+	buffer:print("Available commands:\n")
+	buffer:print(" sleep(slot) - Pre-sleeps chosen slot in party\n")
+	buffer:print(" poison(slot) - Poisons chosen slot in party\n")
+	buffer:print(" paralyze(slot) - Paralyzes chosen slot in party\n")
+	buffer:print(" burn(slot) - Burns chosen slot in party\n")
+	buffer:print(" freeze(slot) - Freezes chosen slot in party\n")
+	buffer:print(" bedtime() - Pre-sleeps entire party\n")
+	buffer:print(" sethp(slot,HP) - sets hp of slot to specified hp\n")
+	buffer:print(" exportparty() - exports showdown calc verison of party to console\n")
+	buffer:print(" exportall() - exports showdown calc verison of first 5 boxes + party to console\n")
+	buffer:print(" edge(slot) - edges slot\n")
+	buffer:print(" edge(slot, amt) - edges slot to specific amount\n")
+	buffer:print(" edgeparty() - edges entire party\n")
+	buffer:print(" setrain(route, status) - sets rain on/off on route 119 or 123\n")
+	buffer:print(" heal(slot) - heals all HP, PP and status for that party slot\n")
+	buffer:print(" nursejoy() - heals all HP, PP and status for the entire party\n")
+end
+
 callbacks:add("start", detectGame)
 if emu then
 	detectGame()
 	buffer = console:createBuffer("Exports")
 	buffer:setSize(200,1000)
+	help()
 end

@@ -1533,7 +1533,8 @@ function edgeparty()
 	end
 end
 
-function edge(slot)
+function edge(slot, xpToLevelUp)
+	xpToLevelUp = xpToLevelUp or 1
 	pcount = emu:read8(game._partyCount)
 	if(not(slot<=pcount and slot>=0)) then
 		console:log("Invalid Slot, slot out of range")
@@ -1544,7 +1545,7 @@ function edge(slot)
 		local checksum = ((mon.checksum - (mon.experience >> 16))%65536)
 		checksum = ((checksum - (mon.experience & 0x0000FFFF))%65536)
 		local pSel = substructSelector[mon.personality % 24]
-		targetExp = expRequired(mon.species,mon.level+1)-1 
+		targetExp = expRequired(mon.species,mon.level+1)-xpToLevelUp 
 		encryptedExp = BitXOR(BitXOR(targetExp, mon.personality), mon.otId)
 		checksum = (checksum + (targetExp>>16))
 		checksum = ((checksum + (targetExp & 0x0000FFFF))%65536)

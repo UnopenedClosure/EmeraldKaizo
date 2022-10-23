@@ -1462,7 +1462,7 @@ function bedtime()
 end
 
 function sethp(slot, hp)
-	if (hp<1 or hp>emu:read16(0x20244ec + 88) + 100*(slot-1)) then
+	if hp<1 or hp>emu:read16(0x20244ec + 88 + 100*(slot-1)) then
 		console:log("Invalid HP")
 	elseif (slot>game._partyCount or slot<1) then
 		console:log("Invalid Slot, slot out of range")
@@ -1619,7 +1619,7 @@ function heal(slot)
 	if (slot>game._partyCount or slot<1) then
 		console:log("Invalid Slot, slot out of range")
 	else
-		local start = 0x20244ec  + 100 * (slot - 1)
+		local start = 0x20244ec + 100 * (slot - 1)
 		local mon = game:_readPartyMon(start)
 		sethp(slot, mon.maxHP)
 		statusSlot(slot, 0)

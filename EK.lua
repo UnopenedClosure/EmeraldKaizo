@@ -990,8 +990,14 @@ function Game.getSpeciesName(game, id)
 		end
 		id = index[id]
 	end
-	local pointer = game._speciesNameTable + (game._speciesNameLength) * id
-	return game:toString(emu.memory.cart0:readRange(pointer, game._monNameLength))
+	if id==29 then
+		return "Nidoran-F"
+	elseif id==32 then
+		return "Nidoran-M"
+	else
+		local pointer = game._speciesNameTable + (game._speciesNameLength) * id
+		return game:toString(emu.memory.cart0:readRange(pointer, game._monNameLength))
+	end
 end
 
 local GBGameEn = Game:new{
@@ -1621,7 +1627,12 @@ function heal(slot)
 	else
 		local start = 0x20244ec + 100 * (slot - 1)
 		local mon = game:_readPartyMon(start)
-		sethp(slot, mon.maxHP)
+		if (slot>game._partyCount or slot<1) then
+			console:log("Invalid Slot, slot out of range")
+		else
+			emu:write16((0x20244ec + 86) + 100*(slot-1), emu:read16(0x20244ec + 88 + 100*(slot-1)))
+		end
+		--sethp(slot, mon.maxHP)--there is a bug with this function and some high-HP mons
 		statusSlot(slot, 0)
 		
 		local magicword = BitXOR(mon.personality, mon.otId)
